@@ -30,9 +30,7 @@ estilos.css    presentación (tres colores, se adapta a tema claro y oscuro)
 datos.js       los 30 correos de ejemplo, en formato JSON
 modelo.js      el prompt, la respuesta del modelo, la validación y las reglas de seguridad
 app.js         interfaz: indicadores, filtros, fichas y corrección manual
-```
 
-```
 analisis/      la Entrega A: el documento de análisis en 4 hojas
 ```
 
