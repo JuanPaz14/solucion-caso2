@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Caso 2 — Análisis del proceso</title>
+<style>
+  /* TRES COLORES: azul, dorado, gris */
+  :root{ --azul:#12304f; --oro:#b8862b; --gris:#7c8894; --gris-cl:#f2f5f7; --linea:#dde4ea; }
+  *{box-sizing:border-box}
+  @page{ size:A4; margin:20mm 18mm; }
+  html,body{margin:0;padding:0}
+  body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;color:var(--azul);
+       font-size:10pt;line-height:1.6;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .page{page-break-after:always}
+  .page:last-child{page-break-after:auto}
+
+  /* ── PORTADA ── */
+  .portada{padding-top:14mm}
+  .inst{font-size:8.5pt;color:var(--gris);line-height:1.7}
+  .inst b{color:var(--azul);font-weight:600}
+  .barra{width:34mm;height:3px;background:var(--oro);margin:26mm 0 7mm}
+  .portada .caso{font-size:8pt;letter-spacing:2.6px;text-transform:uppercase;color:var(--oro);font-weight:700}
+  .portada h1{font-size:27pt;font-weight:600;letter-spacing:-.6px;line-height:1.15;margin:5mm 0 4mm}
+  .portada .sub{font-size:12pt;color:var(--gris);font-weight:400;margin:0}
+  .equipo{margin-top:30mm;padding-top:6mm;border-top:1px solid var(--linea)}
+  .equipo .lab{font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--oro);font-weight:700;margin-bottom:4mm}
+  .equipo ul{list-style:none;margin:0;padding:0;columns:2;column-gap:14mm}
+  .equipo li{font-size:11.5pt;padding:1.6mm 0;break-inside:avoid}
+  .pie{margin-top:22mm;font-size:8.5pt;color:var(--gris)}
+
+  /* ── HOJAS DE CONTENIDO ── */
+  .eyebrow{font-size:7.5pt;letter-spacing:2.4px;text-transform:uppercase;color:var(--oro);font-weight:700}
+  h1{font-size:19pt;font-weight:600;margin:3mm 0 2mm;letter-spacing:-.4px}
+  .sub{color:var(--gris);font-size:10.5pt;margin:0 0 8mm}
+  .rule{height:2px;background:var(--azul);margin-bottom:9mm}
+  p{margin:0 0 4mm}
+  strong{font-weight:600}
+
+  table{width:100%;border-collapse:collapse;font-size:9.5pt;margin:0 0 7mm}
+  th{font-size:7.5pt;letter-spacing:1.3px;text-transform:uppercase;color:var(--gris);
+     text-align:left;font-weight:700;padding:0 2mm 2.5mm;border-bottom:1.5px solid var(--azul)}
+  td{padding:3mm 2mm;border-bottom:1px solid var(--linea)}
+  .num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  tr.acento td{background:#fbf5e9;color:#8a6414;font-weight:600}
+  tr.total td{border-top:1.5px solid var(--azul);border-bottom:none;font-weight:700}
+
+  .franja{padding:5mm 6mm;background:var(--gris-cl);border-radius:3px;font-size:10pt;margin-bottom:7mm}
+  .franja b{color:var(--oro);font-weight:600}
+  .nota{font-size:8.5pt;color:var(--gris);margin-top:-3mm}
+  svg{display:block;width:100%;height:auto;margin-bottom:6mm}
+
+  .verbos{display:flex;gap:6mm;margin:0 0 8mm}
+  .verbo{flex:1;border-top:2.5px solid var(--linea);padding-top:4mm}
+  .verbo.on{border-top-color:var(--oro)}
+  .verbo h3{font-size:11.5pt;font-weight:600;margin:0 0 2.5mm}
+  .verbo.on h3{color:var(--oro)}
+  .verbo p{font-size:9pt;line-height:1.55;margin:0;color:var(--azul)}
+
+  .cifras{display:flex;gap:6mm}
+  .cifras div{flex:1;padding:5mm;background:var(--gris-cl);border-radius:3px;text-align:center}
+  .cifras b{display:block;font-size:15pt;font-weight:600;color:var(--oro);letter-spacing:-.4px;margin-bottom:1.5mm}
+  .cifras span{font-size:8.5pt;color:var(--gris)}
+
+  .limite{margin-top:8mm;padding:6mm;background:var(--azul);border-radius:3px;color:#dde6ee}
+  .limite .lab{font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--oro);font-weight:700;margin-bottom:3mm}
+  .limite p{font-size:9.5pt;line-height:1.6;margin:0}
+  .limite strong{color:#fff}
+</style>
+</head>
+<body>
+
+<!-- ════════ PORTADA ════════ -->
+<div class="page portada">
+  <div class="inst">
+    <b>Institución Universitaria Antonio José Camacho</b><br>
+    Facultad de Ingeniería · Ingeniería de Sistemas
+  </div>
+
+  <div class="barra"></div>
+
+  <div class="caso">Seminario de Actualización · Caso 2</div>
+  <h1>Atención de solicitudes<br>por correo electrónico</h1>
+  <p class="sub">Análisis del proceso y propuesta de rediseño</p>
+
+  <div class="equipo">
+    <div class="lab">Integrantes</div>
+    <ul>
+      <li>Dilann Belalcazar</li>
+      <li>Kevin Rubio</li>
+      <li>Alejandro Romero</li>
+      <li>Juan Camilo Paz</li>
+      <li>Deiby Camacho</li>
+    </ul>
+  </div>
+
+  <div class="pie">
+    Décimo semestre · Periodo 2026-2<br>
+    Docente: Andrés Felipe Vasco
+  </div>
+</div>
+
+<!-- ════════ 1 · DIAGRAMA AS-IS ════════ -->
+<div class="page">
+  <div class="eyebrow">Punto 1</div>
+  <h1>Diagrama AS-IS</h1>
+  <p class="sub">Cómo funciona el proceso hoy, con los tiempos de cada etapa.</p>
+  <div class="rule"></div>
+
+  <svg viewBox="0 0 830 250" xmlns="http://www.w3.org/2000/svg">
+    <defs><marker id="f" markerWidth="8" markerHeight="8" refX="7" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 z" fill="#7c8894"/></marker>
+      <marker id="g" markerWidth="8" markerHeight="8" refX="7" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 z" fill="#b8862b"/></marker></defs>
+
+    <line x1="88" y1="10" x2="88" y2="240" stroke="#dde4ea" stroke-width="1.5"/>
+    <line x1="0" y1="74"  x2="830" y2="74"  stroke="#dde4ea" stroke-width="1.5"/>
+    <line x1="0" y1="158" x2="830" y2="158" stroke="#dde4ea" stroke-width="1.5"/>
+    <text x="0" y="46"  font-size="10.5" font-weight="600" fill="#12304f">Cliente</text>
+    <text x="0" y="112" font-size="10.5" font-weight="600" fill="#12304f">Equipo de</text>
+    <text x="0" y="126" font-size="10.5" font-weight="600" fill="#12304f">atención</text>
+    <text x="0" y="197" font-size="10.5" font-weight="600" fill="#12304f">Área</text>
+    <text x="0" y="211" font-size="10.5" font-weight="600" fill="#12304f">responsable</text>
+
+    <circle cx="122" cy="42" r="13" fill="#fff" stroke="#12304f" stroke-width="1.8"/>
+    <text x="122" y="66" font-size="8.4" fill="#7c8894" text-anchor="middle">envía correo</text>
+
+    <rect x="160" y="94" width="112" height="46" rx="3" fill="#f2f5f7" stroke="#c3ced8" stroke-width="1.2" stroke-dasharray="5 3"/>
+    <text x="216" y="113" font-size="9" fill="#5a6b7b" text-anchor="middle">espera en el buzón</text>
+    <text x="216" y="130" font-size="11" font-weight="600" fill="#12304f" text-anchor="middle">4 h</text>
+
+    <rect x="296" y="94" width="112" height="46" rx="4" fill="#fff" stroke="#12304f" stroke-width="1.5"/>
+    <text x="352" y="113" font-size="9.4" font-weight="600" fill="#12304f" text-anchor="middle">Leer y clasificar</text>
+    <text x="352" y="129" font-size="8.6" fill="#7c8894" text-anchor="middle">manual · 2,5 min</text>
+
+    <rect x="432" y="94" width="104" height="46" rx="4" fill="#fff" stroke="#12304f" stroke-width="1.5"/>
+    <text x="484" y="113" font-size="9.4" font-weight="600" fill="#12304f" text-anchor="middle">Reenviar al área</text>
+    <text x="484" y="129" font-size="8.6" fill="#7c8894" text-anchor="middle">sin acuse</text>
+
+    <rect x="432" y="180" width="112" height="46" rx="3" fill="#fbf5e9" stroke="#b8862b" stroke-width="1.8" stroke-dasharray="5 3"/>
+    <text x="488" y="199" font-size="9" fill="#8a6414" text-anchor="middle">espera en el área</text>
+    <text x="488" y="216" font-size="11.5" font-weight="600" fill="#b8862b" text-anchor="middle">12 h</text>
+
+    <polygon points="574,203 604,180 634,203 604,226" fill="#fff" stroke="#12304f" stroke-width="1.5"/>
+    <text x="604" y="200" font-size="8" font-weight="600" fill="#12304f" text-anchor="middle">¿es de</text>
+    <text x="604" y="211" font-size="8" font-weight="600" fill="#12304f" text-anchor="middle">mi área?</text>
+
+    <rect x="664" y="180" width="74" height="46" rx="4" fill="#fff" stroke="#12304f" stroke-width="1.5"/>
+    <text x="701" y="199" font-size="9.4" font-weight="600" fill="#12304f" text-anchor="middle">Resolver</text>
+    <text x="701" y="215" font-size="8.6" fill="#7c8894" text-anchor="middle">25 min</text>
+
+    <rect x="756" y="180" width="74" height="46" rx="4" fill="#fff" stroke="#12304f" stroke-width="1.5"/>
+    <text x="793" y="199" font-size="9.4" font-weight="600" fill="#12304f" text-anchor="middle">Responder</text>
+    <text x="793" y="215" font-size="8.6" fill="#7c8894" text-anchor="middle">8 min</text>
+
+    <circle cx="793" cy="42" r="13" fill="#fff" stroke="#12304f" stroke-width="3.4"/>
+    <text x="793" y="66" font-size="8.4" fill="#7c8894" text-anchor="middle">recibe respuesta</text>
+
+    <path d="M122,55 L122,117 L157,117" fill="none" stroke="#7c8894" stroke-width="1.4" marker-end="url(#f)"/>
+    <path d="M272,117 L293,117" fill="none" stroke="#7c8894" stroke-width="1.4" marker-end="url(#f)"/>
+    <path d="M408,117 L429,117" fill="none" stroke="#7c8894" stroke-width="1.4" marker-end="url(#f)"/>
+    <path d="M488,140 L488,177" fill="none" stroke="#7c8894" stroke-width="1.4" marker-end="url(#f)"/>
+    <path d="M544,203 L571,203" fill="none" stroke="#7c8894" stroke-width="1.4" marker-end="url(#f)"/>
+    <path d="M634,203 L661,203" fill="none" stroke="#7c8894" stroke-width="1.4" marker-end="url(#f)"/>
+    <text x="647" y="198" font-size="8" font-weight="600" fill="#12304f">sí</text>
+    <path d="M738,203 L753,203" fill="none" stroke="#7c8894" stroke-width="1.4" marker-end="url(#f)"/>
+    <path d="M793,180 L793,57" fill="none" stroke="#7c8894" stroke-width="1.4" marker-end="url(#f)"/>
+    <path d="M604,177 L604,152 L352,152 L352,143" fill="none" stroke="#b8862b" stroke-width="1.6"
+          stroke-dasharray="6 3.5" marker-end="url(#g)"/>
+    <text x="478" y="147" font-size="8.4" font-weight="600" fill="#b8862b" text-anchor="middle">no · se devuelve a clasificar — 12 % de los casos</text>
+  </svg>
+
+  <table>
+    <thead><tr><th style="width:50%">Etapa</th><th class="num">Trabajo</th><th class="num">Espera</th><th class="num">Total</th></tr></thead>
+    <tbody>
+      <tr><td>Recepción en el buzón</td><td class="num">—</td><td class="num">4,00 h</td><td class="num">4,00 h</td></tr>
+      <tr><td>Lectura y clasificación</td><td class="num">2,5 min</td><td class="num">—</td><td class="num">0,04 h</td></tr>
+      <tr class="acento"><td>Espera en la bandeja del área</td><td class="num">—</td><td class="num">12,00 h</td><td class="num">12,00 h</td></tr>
+      <tr><td>Resolución</td><td class="num">25 min</td><td class="num">—</td><td class="num">0,42 h</td></tr>
+      <tr><td>Respuesta al cliente</td><td class="num">8 min</td><td class="num">1,00 h</td><td class="num">1,13 h</td></tr>
+      <tr><td>Reproceso por mal enrutamiento</td><td class="num">—</td><td class="num">1,44 h</td><td class="num">1,44 h</td></tr>
+      <tr class="total"><td>Total</td><td class="num">36 min</td><td class="num">18,4 h</td><td class="num">19,0 h</td></tr>
+    </tbody>
+  </table>
+
+  <div class="franja">
+    Un caso tarda <b>19 horas</b> en resolverse, pero solo <b>36 minutos</b> son trabajo real.
+    El resto del tiempo está esperando en una bandeja.
+  </div>
+</div>
+
+<!-- ════════ 2 · CUELLO DE BOTELLA ════════ -->
+<div class="page">
+  <div class="eyebrow">Punto 2</div>
+  <h1>El cuello de botella</h1>
+  <p class="sub">Dónde está y con qué números lo probamos.</p>
+  <div class="rule"></div>
+
+  <svg viewBox="0 0 830 210" xmlns="http://www.w3.org/2000/svg">
+    <g font-size="9.6">
+      <text x="0" y="26"  fill="#12304f">Buzón compartido</text>
+      <rect x="210" y="15" width="187" height="17" fill="#c3ced8"/>
+      <text x="406" y="27" fill="#7c8894" font-size="9">4,00 h</text>
+
+      <text x="0" y="61"  fill="#12304f">Clasificación</text>
+      <rect x="210" y="50" width="2" height="17" fill="#c3ced8"/>
+      <text x="221" y="62" fill="#7c8894" font-size="9">0,04 h</text>
+
+      <text x="0" y="96"  fill="#b8862b" font-weight="600">Espera en el área</text>
+      <rect x="210" y="85" width="560" height="17" fill="#b8862b"/>
+      <text x="779" y="97" fill="#b8862b" font-size="9" font-weight="700">12,00 h</text>
+
+      <text x="0" y="131" fill="#12304f">Resolución</text>
+      <rect x="210" y="120" width="20" height="17" fill="#c3ced8"/>
+      <text x="239" y="132" fill="#7c8894" font-size="9">0,42 h</text>
+
+      <text x="0" y="166" fill="#12304f">Respuesta</text>
+      <rect x="210" y="155" width="53" height="17" fill="#c3ced8"/>
+      <text x="272" y="167" fill="#7c8894" font-size="9">1,13 h</text>
+
+      <text x="0" y="196" fill="#12304f">Reproceso</text>
+      <rect x="210" y="185" width="67" height="17" fill="#c3ced8"/>
+      <text x="286" y="197" fill="#7c8894" font-size="9">1,44 h</text>
+    </g>
+  </svg>
+
+  <div class="franja">
+    La espera en la bandeja del área se lleva <b>12 de las 19 horas</b>: el 63 % del tiempo total.
+    La resolución técnica, que es donde todos quieren intervenir, pesa apenas el 2 %.
+  </div>
+
+  <p>Para comprobarlo calculamos qué pasaría si mejoráramos <strong>una sola cosa a la vez</strong>:</p>
+
+  <table>
+    <thead><tr><th style="width:62%">Si solo mejoramos…</th><th class="num">Lead time</th><th class="num">Mejora</th></tr></thead>
+    <tbody>
+      <tr><td>La velocidad de la resolución técnica</td><td class="num">18,9 h</td><td class="num">0,9 %</td></tr>
+      <tr><td>La clasificación de los correos</td><td class="num">15,0 h</td><td class="num">21 %</td></tr>
+      <tr class="acento"><td>La asignación: dueño, prioridad y reloj</td><td class="num">11,0 h</td><td class="num">42 %</td></tr>
+      <tr class="total"><td>Las tres juntas (propuesta TO-BE)</td><td class="num">5,0 h</td><td class="num">74 %</td></tr>
+    </tbody>
+  </table>
+
+  <div class="limite">
+    <div class="lab">Conclusión</div>
+    <p>El problema no es que la gente trabaje lento: mejorar la resolución técnica solo aporta un 0,9 %.
+    El problema es que <strong>el trabajo vive dentro de un correo, y un correo no tiene dueño, ni prioridad, ni reloj.</strong>
+    Nadie sabe si un caso ya fue tomado ni cuánto lleva esperando.</p>
+  </div>
+</div>
+
+<!-- ════════ 3 · DIAGRAMA TO-BE ════════ -->
+<div class="page">
+  <div class="eyebrow">Punto 3</div>
+  <h1>Diagrama TO-BE</h1>
+  <p class="sub">El proceso rediseñado: eliminar, simplificar, integrar y automatizar con inteligencia artificial.</p>
+  <div class="rule"></div>
+
+  <svg viewBox="0 0 830 250" xmlns="http://www.w3.org/2000/svg">
+    <defs><marker id="h" markerWidth="8" markerHeight="8" refX="7" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 z" fill="#7c8894"/></marker>
+      <marker id="i" markerWidth="8" markerHeight="8" refX="7" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 z" fill="#b8862b"/></marker></defs>
+
+    <line x1="88" y1="10" x2="88" y2="242" stroke="#dde4ea" stroke-width="1.5"/>
+    <line x1="0" y1="70"  x2="830" y2="70"  stroke="#dde4ea" stroke-width="1.5"/>
+    <line x1="0" y1="140" x2="830" y2="140" stroke="#dde4ea" stroke-width="1.5"/>
+    <line x1="0" y1="186" x2="830" y2="186" stroke="#dde4ea" stroke-width="1.5"/>
+    <text x="0" y="44"  font-size="10.5" font-weight="600" fill="#12304f">Cliente</text>
+    <text x="0" y="110" font-size="10.5" font-weight="600" fill="#b8862b">Sistema</text>
+    <text x="0" y="167" font-size="10.5" font-weight="600" fill="#12304f">Equipo</text>
+    <text x="0" y="218" font-size="10.5" font-weight="600" fill="#12304f">Área</text>
+
+    <circle cx="122" cy="40" r="13" fill="#fff" stroke="#12304f" stroke-width="1.8"/>
+    <text x="122" y="63" font-size="8.4" fill="#7c8894" text-anchor="middle">envía correo</text>
+
+    <rect x="152" y="86" width="110" height="42" rx="4" fill="#fbf5e9" stroke="#b8862b" stroke-width="1.5"/>
+    <text x="207" y="104" font-size="9.2" font-weight="600" fill="#8a6414" text-anchor="middle">Crear el caso</text>
+    <text x="207" y="119" font-size="8.4" fill="#b8862b" text-anchor="middle">automático</text>
+
+    <rect x="286" y="86" width="110" height="42" rx="4" fill="#fbf5e9" stroke="#b8862b" stroke-width="1.5"/>
+    <text x="341" y="104" font-size="9.2" font-weight="600" fill="#8a6414" text-anchor="middle">Clasificar con IA</text>
+    <text x="341" y="119" font-size="8.4" fill="#b8862b" text-anchor="middle">modelo de lenguaje</text>
+
+    <polygon points="420,107 450,86 480,107 450,128" fill="#fff" stroke="#12304f" stroke-width="1.5"/>
+    <text x="450" y="104" font-size="8.4" font-weight="600" fill="#12304f" text-anchor="middle">¿está</text>
+    <text x="450" y="116" font-size="8.4" font-weight="600" fill="#12304f" text-anchor="middle">seguro?</text>
+
+    <rect x="392" y="148" width="124" height="30" rx="4" fill="#fff" stroke="#12304f" stroke-width="1.5"/>
+    <text x="454" y="168" font-size="9" font-weight="600" fill="#12304f" text-anchor="middle">Revisar a mano · 15 %</text>
+
+    <rect x="534" y="86" width="118" height="42" rx="4" fill="#fbf5e9" stroke="#b8862b" stroke-width="1.5"/>
+    <text x="593" y="104" font-size="9.2" font-weight="600" fill="#8a6414" text-anchor="middle">Asignar dueño,</text>
+    <text x="593" y="119" font-size="9.2" font-weight="600" fill="#8a6414" text-anchor="middle">prioridad y reloj</text>
+
+    <rect x="406" y="196" width="98" height="40" rx="3" fill="#f2f5f7" stroke="#c3ced8" stroke-width="1.2" stroke-dasharray="5 3"/>
+    <text x="455" y="213" font-size="8.8" fill="#5a6b7b" text-anchor="middle">cola priorizada</text>
+    <text x="455" y="229" font-size="10.5" font-weight="600" fill="#12304f" text-anchor="middle">4 h</text>
+
+    <rect x="536" y="196" width="80" height="40" rx="4" fill="#fff" stroke="#12304f" stroke-width="1.5"/>
+    <text x="576" y="214" font-size="9.2" font-weight="600" fill="#12304f" text-anchor="middle">Resolver</text>
+    <text x="576" y="228" font-size="8.4" fill="#7c8894" text-anchor="middle">22 min</text>
+
+    <rect x="648" y="196" width="92" height="40" rx="4" fill="#fff" stroke="#12304f" stroke-width="1.5"/>
+    <text x="694" y="214" font-size="9.2" font-weight="600" fill="#12304f" text-anchor="middle">Responder</text>
+    <text x="694" y="228" font-size="8.4" fill="#7c8894" text-anchor="middle">5 min</text>
+
+    <circle cx="793" cy="40" r="13" fill="#fff" stroke="#12304f" stroke-width="3.4"/>
+    <text x="793" y="63" font-size="8.4" fill="#7c8894" text-anchor="middle">recibe respuesta</text>
+
+    <path d="M122,53 L122,107 L149,107" fill="none" stroke="#7c8894" stroke-width="1.4" marker-end="url(#h)"/>
+    <path d="M262,107 L283,107" fill="none" stroke="#7c8894" stroke-width="1.4" marker-end="url(#h)"/>
+    <path d="M396,107 L417,107" fill="none" stroke="#7c8894" stroke-width="1.4" marker-end="url(#h)"/>
+    <path d="M480,107 L531,107" fill="none" stroke="#7c8894" stroke-width="1.4" marker-end="url(#h)"/>
+    <text x="505" y="102" font-size="8" font-weight="600" fill="#12304f" text-anchor="middle">sí · 85 %</text>
+    <path d="M450,130 L450,145" fill="none" stroke="#b8862b" stroke-width="1.5" marker-end="url(#i)"/>
+    <text x="426" y="141" font-size="8" font-weight="600" fill="#b8862b">no</text>
+    <path d="M516,163 L593,163 L593,130" fill="none" stroke="#b8862b" stroke-width="1.5" marker-end="url(#i)"/>
+    <path d="M652,107 L712,107 L712,180 L455,180 L455,193" fill="none" stroke="#7c8894" stroke-width="1.4" marker-end="url(#h)"/>
+    <path d="M504,216 L533,216" fill="none" stroke="#7c8894" stroke-width="1.4" marker-end="url(#h)"/>
+    <path d="M616,216 L645,216" fill="none" stroke="#7c8894" stroke-width="1.4" marker-end="url(#h)"/>
+    <path d="M740,216 L793,216 L793,55" fill="none" stroke="#7c8894" stroke-width="1.4" marker-end="url(#h)"/>
+  </svg>
+
+  <div class="verbos">
+    <div class="verbo"><h3>Eliminar</h3><p>La lectura a mano de los 500 correos y el reenvío como forma de asignar.</p></div>
+    <div class="verbo"><h3>Simplificar</h3><p>Cinco categorías y tres niveles de urgencia, con criterios escritos.</p></div>
+    <div class="verbo"><h3>Integrar</h3><p>El buzón se conecta al sistema de casos y el CRM aporta los datos del cliente.</p></div>
+    <div class="verbo on"><h3>Automatizar</h3><p>Un modelo de lenguaje clasifica y prioriza. Lo que marca con baja confianza pasa a una persona.</p></div>
+  </div>
+
+  <div class="cifras">
+    <div><b>19 h → 5 h</b><span>Lead time</span></div>
+    <div><b>12 % → 4 %</b><span>Casos mal enrutados</span></div>
+    <div><b>2,45 → 0,15</b><span>Personas clasificando</span></div>
+  </div>
+</div>
+
+<!-- ════════ 4 · RIESGOS Y LÍMITES ════════ -->
+<div class="page">
+  <div class="eyebrow">Punto 4</div>
+  <h1>Riesgos y límites</h1>
+  <p class="sub">Qué pasa cuando el modelo se equivoca.</p>
+  <div class="rule"></div>
+
+  <table>
+    <thead><tr><th style="width:26%">Riesgo</th><th style="width:36%">Qué pasa</th><th>Cómo lo contenemos</th></tr></thead>
+    <tbody>
+      <tr class="acento">
+        <td>Un caso urgente se clasifica como rutinario</td>
+        <td>Es el error más caro: se va al fondo de la cola y el cliente escala por otro canal.</td>
+        <td>Reglas fijas que corrigen al modelo hacia arriba («cancelar contrato», «abogado», «tutela»): nunca bajan la urgencia, solo la suben. Ningún caso espera más de 4 h sin revisión.</td>
+      </tr>
+      <tr>
+        <td>El caso va al área equivocada</td>
+        <td>Pierde unas cuatro horas y vuelve a la cola.</td>
+        <td>El modelo declara su confianza en cada caso. Por debajo del 45 % no se asigna: pasa a revisión humana.</td>
+      </tr>
+      <tr>
+        <td>El modelo pierde precisión con el tiempo</td>
+        <td>Se degrada en silencio hasta que los reclamos se acumulan.</td>
+        <td>Revisión mensual de cien casos a mano. Alarma si la precisión baja del 85 %.</td>
+      </tr>
+      <tr>
+        <td>Datos de clientes enviados a un tercero</td>
+        <td>Si se usa un modelo externo, se incumple la Ley 1581 de 2012. Es un riesgo legal.</td>
+        <td>Anonimizar antes de enviar o usar un modelo local. Lo decide la empresa, no el desarrollador.</td>
+      </tr>
+      <tr>
+        <td>Se cae el proveedor del modelo</td>
+        <td>La operación se detiene si todo depende de él.</td>
+        <td>Sin modelo funcionan solo las reglas y el resto va a una cola humana. La entrada nunca se bloquea.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="limite">
+    <div class="lab">Los límites de la propuesta</div>
+    <p><strong>No crea capacidad donde no la hay.</strong> Si el área no alcanza a atender la demanda actual,
+    priorizar solo cambia el orden en que las cosas se atrasan. El sistema hace visible el problema de capacidad, no lo resuelve.</p>
+    <p style="margin-top:3.5mm"><strong>No sirve sin un dueño del proceso.</strong> Alguien tiene que responder por el resultado completo.
+    Sin dueño ni indicadores, en unos meses se vuelve a trabajar por correo.</p>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Caso 2 · Clasificación y asignación de solicitudes</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<div class="envoltura">
+
+  <header class="cabecera">
+    <div>
+      <div class="marca">Caso 2 · Entrega B · Prototipo</div>
+      <h1>Clasificación y asignación de solicitudes</h1>
+      <p>500 correos diarios que hoy se leen y se reparten a mano. Esta es la demostración con 30 de ellos.</p>
+    </div>
+    <button class="tema" id="btnTema" title="Cambiar tema">◐</button>
+  </header>
+
+  <div class="aviso">
+    <b>Prototipo.</b> La respuesta del modelo está guardada como JSON de ejemplo, no se llama a un
+    servicio real. El prompt, la validación, el umbral de confianza y las reglas de seguridad sí son
+    la lógica que se usaría en producción.
+    <button class="enlace" id="btnPrompt">Ver el prompt de clasificación</button>
+  </div>
+
+  <div class="accion">
+    <div class="txt">
+      <b id="accionTitulo">30 correos sin procesar en el buzón común</b>
+      <span id="accionNota">Ninguno tiene categoría, área responsable ni urgencia. Alguien tiene que abrirlos uno por uno.</span>
+    </div>
+    <button class="btn oro" id="btnProcesar">Clasificar con IA</button>
+    <button class="btn oculto" id="btnReiniciar">Volver al inicio</button>
+  </div>
+
+  <section id="vistaCruda">
+    <div class="titulo-sec">Bandeja de entrada · como llega hoy</div>
+    <div id="listaCruda"></div>
+  </section>
+
+  <section id="vistaProcesada" class="oculto">
+    <div class="titulo-sec">Indicadores</div>
+    <div class="kpis" id="kpis"></div>
+
+    <div class="titulo-sec">Distribución</div>
+    <div class="graficos">
+      <div class="panel"><h3>Por categoría</h3><div id="gCategoria"></div></div>
+      <div class="panel"><h3>Por área responsable</h3><div id="gArea"></div></div>
+      <div class="panel"><h3>Por urgencia</h3><div id="gUrgencia"></div></div>
+    </div>
+
+    <div class="titulo-sec">Casos asignados</div>
+    <div class="filtros" id="filtros"></div>
+    <div id="listaCasos"></div>
+  </section>
+
+  <div class="pie">
+    <b>Cómo clasifica:</b> los correos se envían al modelo en lotes de 10 con un prompt que define las
+    cinco categorías, los criterios de urgencia y la instrucción explícita de <i>no adivinar</i>. El modelo
+    devuelve categoría, urgencia, confianza y el motivo de su decisión, que se ve al abrir cualquier caso.
+    Lo que devuelve con confianza menor al 45 % no se asigna: entra a la cola de revisión humana.<br>
+    <b>Red de seguridad:</b> por encima del modelo corren tres reglas fijas —cancelación de contrato,
+    acciones legales y organismos de control— que fuerzan urgencia alta. Nunca bajan la urgencia, solo la
+    suben. Es la mitigación del riesgo más caro del análisis: que un reclamo grave se clasifique como
+    consulta rutinaria. En esta muestra corrige al modelo una vez.
+  </div>
+</div>
+
+<div class="velo oculto" id="velo">
+  <div class="ficha" id="ficha"></div>
+</div>
+
+<script src="datos.js"></script>
+<script src="modelo.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
